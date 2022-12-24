@@ -1,8 +1,10 @@
+import './CartWidget.css'
+
 const CartWidget = () => {
     return (
-        <div style={{ backgroundColor: 'white', color: 'black'}}>
-            <img src='./images/cart.svg' alt='cart-widget'/>
-            0
+        <div className='menu_carrito'>
+            <img className="carrito" src='./images/cart.svg' alt='cart-widget'/>
+            <text>0</text>
         </div>
     )
 }
