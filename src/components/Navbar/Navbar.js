@@ -10,12 +10,12 @@ function Navbar() {
 	return (
 		<>
 			<nav className='menu'>
-				<h2> <span>Nuestra Tienda </span></h2>
+				<h2> <span>Mi Tienda </span></h2>
 				<CartWidget />	
 				<div className='botones'>
 					<button><a href="">Inicio</a></button> 
 					<button><a href="">Productos</a></button> 
-					<button><a href="">Nosotrtos</a></button> 
+					<button><a href="">Nosotros</a></button> 
 					<button><a href="">Contacto</a></button> 
 				</div>							
 			</nav>
