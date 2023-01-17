@@ -1,29 +1,22 @@
-import React from 'react'
-import './Navbar.css'
+import { NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
-import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
 
+const NavBar = () => {
 
+  const navigate = useNavigate()
 
-function Navbar() {
-
-	return (
-		<>
-			<nav className='menu'>
-				<h2> <span>Mi Tienda </span></h2>
-				<CartWidget />	
-				<div className='botones'>
-					<button><a href="">Inicio</a></button> 
-					<button><a href="">Productos</a></button> 
-					<button><a href="">Nosotros</a></button> 
-					<button><a href="">Contacto</a></button> 
-				</div>							
-			</nav>
-		</>
-	)
-}	
-
-export default Navbar
-
-
-
+  return (
+    <nav className="NavBar" >
+          <h2 onClick={() => navigate('/')}>Mi tienda</h2>
+        <div className="Categories">
+          <NavLink to={`/category/TV`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Televisores</NavLink>
+          <NavLink to={`/category/Heladeras`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Heladeras</NavLink>
+          <NavLink to={`/category/Lavarropas`} className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Lavarropas</NavLink>
+        </div>
+        { <CartWidget /> }
+    </nav>
+  )
+}
+export default NavBar

@@ -1,20 +1,15 @@
 .carrito{          
     padding-right: 20px;
-    width: 50px;
-    
-    
+    width: 30px;    
 }
 text{
-    color: aqua;
-    font-size: 30px;
+    color: black;
+    font-size: 20px;
 }
-.menu_carrito{
-    
+.menu_carrito{    
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     text-align: center;
-
 }
-
