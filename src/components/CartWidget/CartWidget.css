@@ -1,10 +1,15 @@
 .carrito{          
     padding-right: 20px;
-    width: 30px;    
+    width: 40px;  
+    
+     
+}
+.boton_carrito{
+    background-color: lightblue;
 }
 text{
     color: black;
-    font-size: 20px;
+    font-size: 30px;
 }
 .menu_carrito{    
     display: flex;
@@ -12,4 +17,5 @@ text{
     align-items: center;
     align-content: center;
     text-align: center;
+    
 }

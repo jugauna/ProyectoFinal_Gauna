@@ -1,6 +1,9 @@
 import './ItemDetail.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+/* import ItemCount from '../ItemCount/ItemCount' */
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
+import Swal from 'sweetalert2'
 
 const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
     const [count, setCount] = useState(initial)
@@ -27,15 +30,30 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
 
 
 const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
-    
+    /* const [inputType, setInputType] = useState('button') */
     const [quantity, setQuantity] = useState(0)
 
-    const ItemCount = ButtonCount 
+    const ItemCount =  ButtonCount
+
+    const { addItem, isInCart } = useContext(CartContext)
+    /* const setNotification = useContext(NotificationContext) */
 
     const handleOnAdd = (quantity) => {
-        
+        console.log('agregue al carrito: ', quantity)
 
-        setQuantity(parseInt(quantity))
+        setQuantity(parseInt(quantity))   
+        
+        addItem({ id, name, price, quantity, img})
+        /* setNotification('error',`Produto agregado: ${quantity} ${name}`, 5) */
+        Swal.fire({
+            title: 'Producto agregado',
+            text: (`Produto agregado: ${quantity} unidad/es de ${name}`),
+            imageUrl:  img,
+            icon: 'success',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            })
     }
 
     return (
@@ -55,14 +73,15 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                 <p className="Info">
                     {description}
                 </p>
+                <p className="Info">Disponible: {stock}</p>
                 <p className="Info">
                     Precio: {price}
                 </p>
             </section>           
             <footer className='ItemFooter'>
                 {
-                    quantity > 0 ? (
-                        <Link to='/cart'>Terminar compra</Link>
+                    isInCart(id) ?  (
+                        <Link to='/cart'>Ir al Carrito de Compra</Link>
                     ) : (
                         <ItemCount stock={stock} onConfirm={handleOnAdd} />
                     )

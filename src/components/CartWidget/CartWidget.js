@@ -1,10 +1,10 @@
 import './CartWidget.css'
 
-const CartWidget = () => {
+const CartWidget = ({ totalQuantity }) => {
     return (
         <div className='menu_carrito'>
-            <img className="carrito" src='../images/cart.svg' alt='cart-widget'/>
-            <text>0</text>
+        <button className='boton_carrito'> <img className="carrito" src='../images/cart.svg' alt='cart-widget'/>{ totalQuantity } </button>
+                       
         </div>
     )
 }

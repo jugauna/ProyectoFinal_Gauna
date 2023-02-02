@@ -5,14 +5,12 @@
     align-items: center;
     height: 60px;
     background: lightskyblue;
-  }
-  
+  }  
   .Categories {
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
-  
+  }  
   .Option {   
     font-family:Arial, Helvetica, sans-serif;
     text-decoration: none;
@@ -36,8 +34,7 @@
     border-style: none;
     cursor: pointer;
     outline: inherit;
-  }
-  
+  }  
   .ActiveOption {    
     text-decoration: none;
     border-radius: 25;
@@ -61,3 +58,5 @@
     cursor: pointer;
     outline: inherit;
   }
+
+ 

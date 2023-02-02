@@ -1,0 +1,101 @@
+ 
+cartcontext
+ const deleteItem = (id) => {
+        const products = cart.filter(prod => prod.id !== id )
+        setCart(products)
+    }
+	
+	
+item.js
+
+<section><p className="Info">Disponible: {stock}</p></section>
+<section><p className="Info">Precio: ${price}</p></section>
+
+
+
+
+
+Routes --------queda mas ordenado
+
+Vercel.com
+https://railway.app/
+
+Formulario de carga de datos
+
+
+Next.js
+
+comentar que hacen las funciones
+
+
+rutas ---------------------------
+formulario-----------------------
+
+----------------------------------------------
+carpeta hooks   MINUTO 22 ULTIMA CLASE
+
+modifica itemlistcontainer  
+
+useAsync------ItemListContainer
+ItemListContainer------/firebase/firestore/products.js
+useTitle------ItemListContainer
+firebase
+------/firebase/firestore/orders.js
+src/adapters/ProductAdapter.js
+firebase
+
+
+------------------------------------------------------
+variables de entorno +++++entra--------LISTO
+conf firebase
+.env y firebase
+al mismo nivel del package.jason
+scripts
+.env
+agregar al gitignore
+escribirlo en el .gitignore
+----------------------------------------
+vercel variables de entorno
+inicializar con commit
+modificar un archivo
+git . add
+commit
+push
+
+Vercel no es obligatorio
+
+
+readme
+clonar
+instalar dep
+configurar variables de entorno del .env.example
+ejecutar comando npm start
+explicar componente (itemlistcontainer hace tal cosa)
+gif de una grabacion del flujo de app/ 10 segundos
+video to gif
+dillinger.io
+Document.md
+https://dillinger.io/
+
+nombre 
+telefono
+mail
+
+chat con tutores
+pegar variables de entorno en el github
+repsositorio de github
+
+https://firebase.google.com/docs/auth/web/firebaseui?hl=es-419
+github
+
+en el proyecto de Seba
+ruta publica y la de login
+
+grabaciones dentro de carpetas compratidas
+
+
+https://www.linkedin.com/in/gianlucafava/
+https://www.linkedin.com/in/andresnazzari/
+sebastian zuviria
+
+silla cougar
