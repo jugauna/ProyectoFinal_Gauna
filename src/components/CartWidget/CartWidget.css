@@ -6,6 +6,8 @@
 }
 .boton_carrito{
     background-color: lightblue;
+    width: 90px;
+    height: 55px;
 }
 text{
     color: black;
@@ -18,4 +20,8 @@ text{
     align-content: center;
     text-align: center;
     
+}
+a {
+    
+    width: 100px;
 }

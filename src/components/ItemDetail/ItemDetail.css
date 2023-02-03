@@ -5,8 +5,8 @@
 } 
 button {
     width: auto;
-    padding: 12px;
-    font-size: 15px;
+    /* padding: 12px; */
+    font-size: 10px;
     background: rgb(54, 31, 185);
     border-radius: 8px;
     flex: none;    
@@ -25,4 +25,17 @@ button {
 }
 .ItemFooter {
     font-size: 20px;    
+}
+.button_agregar{
+   
+    font-size: 10px;
+    
+}
+.button_carrito{
+    background: rgb(54, 31, 185);
+    text-decoration: none;
+}
+a {
+    font-size: 15px;
+    color: white;
 }

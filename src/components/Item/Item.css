@@ -1,6 +1,6 @@
 .CardItem {
-    width: 160px;
-    padding: 30px;
+    width: auto;
+    padding: 20px;
     margin: 30px;
     font-size: 10px;
     background-color: lightskyblue;
@@ -31,4 +31,11 @@
 .ItemFooter {
     display: flex;
     justify-content: center;
+    
 }
+.ItemFooter  Button{
+    /* width: auto; */
+   
+
+}
+

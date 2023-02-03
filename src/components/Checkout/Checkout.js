@@ -5,6 +5,7 @@ import { db } from "../../services/firebase/firebaseConfig"
 import { useNavigate } from "react-router-dom"
 import './Checkout.css'
 
+
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [name,setName] = useState('')
@@ -128,17 +129,17 @@ const Checkout = () => {
             <h1>Finalizar Compra</h1>
             <button onClick={createOrder}>Generar Orden de Compra</button>
         </div> */
-        <div className='cart-container'>
+        /* <div className='cart-container'>
             <div>
                 <div>
                     <div>
                         <h1>Ingrese sus datos de Contacto</h1>
                     </div>
-                    <div class="formulario">
-                        <form class="form-horizontal">
+                    <div class="formulario"> */
+                    /*     <form class="form-horizontal">
                             <div class="col-md-8">
                                 <label for="inputNombre" class="col-lg-8 control-label">Nombre y Apellido</label>
-                                <input type="text" value={name} class="form-control" placeholder="Nombre y Apellido" aria-label="nombre" onChange={(event) => setName(event.target.value)}/>
+                                <input type="text" value={name} class="form-control" placeholder="Nombre y Apellido" aria-label="nombre" onChange={(event) => setName(event.target.value)} />
                             </div>
                             <div class="col-md-8">
                                 <label for="inputNombre" class="form-label">Telefono</label>
@@ -157,10 +158,70 @@ const Checkout = () => {
                                 
                                 <button className="Button2" class="btn btn-outline-primary" onClick={createOrder}>Generar Orden de Compra </button>
                             </div> 
-                        </form>
+                        </form> */
+    <div class="container">
+        <div class="row">
+            <div class="col">               
+                <div class="shadow-lg p-3 mb-5 mt-4 bg-body rounded">                                    
+                    <div class="formulario p-3 mb-2 bg-primary bg-gradient fw-bold text-white">Datos de Contacto</div>
+                    <form class="form-horizontal row g-3 needs-validation" novalidate>
+                        <div class="col-md-6 position-relative">
+                            <label for="nombre" class="form-label">Nombre y Apellido *</label>
+                            <input type="text" class="form-control" id="nombre" value={name} required onChange={(event) => setName(event.target.value)} />
+                            
+                            <div class="valid-tooltip">¡Campo válido!</div>
+                            <div class="invalid-tooltip">Debe completar los datos.</div>
+                        </div>
+                        <div class="col-md-6 position-relative">
+                            <label for="apellido" class="form-label">Telefono *</label>
+                            <input type="text" class="form-control" id="telefono" value={phone} required onChange={(event) => setPhone(event.target.value)}/>
+                            
+                            <div class="valid-tooltip">¡Campo válido!</div>
+                            <div class="invalid-tooltip">Debe completar los datos.</div>
+                        </div> 
+                        <div class="col-md-6 position-relative">
+                            <label for="mail" class="form-label">Mail *</label>
+                            <input type="email" class="form-control" id="Mail" value={email} required onChange={(event) => setEmail(event.target.value)}/>
+                            
+                            <div class="valid-tooltip">¡Campo válido!</div>
+                            <div class="invalid-tooltip">Debe completar los datos.</div>
+                        </div>
+                        <div class="col-md-6 position-relative">
+                            <label for="apellido" class="form-label">Dirección *</label>
+                            <input type="text" class="form-control" id="direccion" value={direction} required onChange={(event) => setDirection(event.target.value)}/>
+                            
+                            <div class="valid-tooltip">¡Campo válido!</div>
+                            <div class="invalid-tooltip">Debe completar los datos.</div>
+                        </div>                                            
+                         {/* <div class="col-md-3 position-relative">
+                            <label for="pais" class="form-label">País</label>
+                            <select class="form-select" id="pais" required>
+                                <option selected disabled value="">Seleccione...</option>
+                                <option>México</option>
+                                <option>Colombia</option>
+                                <option>Perú</option>
+                                <option>Chile</option>
+                                <option>Argentina</option>
+                            </select>
+                            
+                            <div class="valid-tooltip">¡Campo válido!</div>
+                            <div class="invalid-tooltip">Debe completar los datos.</div>
+                        </div>  */}    
+
+                                      
+                        <div class="col-12">
+                            <h6>* Campos Obligatorios</h6>
+                            <button className="Button2" class="btn btn-outline-white" onClick={createOrder}>Generar Orden de Compra </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-                    {/* <form  >
+
+                    /* <form  >
                         <div>
                             <input type="text" value={name} placeholder="Nombre y Apellido" onChange={(event) => setName(event.target.value)}/>
                         </div>
@@ -173,14 +234,15 @@ const Checkout = () => {
                         <div>
                             <input type="text" value={direction} placeholder="Direccion" onChange={(event) => setDirection(event.target.value)}/>
                         </div>
-                    </form> */}
-                </div>
+                    </form> */
+             /*    </div>
             </div>             
         </div>
-        </div>
+        </div> */
 
     )
 }
+
 
 
 

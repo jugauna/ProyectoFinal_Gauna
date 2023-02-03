@@ -23,7 +23,7 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
             <p>{count}</p>
             <button onClick={decrement}>-</button>
             <button onClick={increment}>+</button>
-            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+            <button className='button_agregar' onClick={() => onConfirm(count)}>Agregar al carrito</button>
         </div>
     )
 }
@@ -81,7 +81,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
             <footer className='ItemFooter'>
                 {
                     isInCart(id) ?  (
-                        <Link to='/cart'>Ir al Carrito de Compra</Link>
+                        <button className='button_carrito'><Link to='/cart'>Ir al Carrito de Compra</Link></button>
                     ) : (
                         <ItemCount stock={stock} onConfirm={handleOnAdd} />
                     )
