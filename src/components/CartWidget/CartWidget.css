@@ -1,8 +1,6 @@
 .carrito{          
     padding-right: 20px;
-    width: 40px;  
-    
-     
+    width: 40px;     
 }
 .boton_carrito{
     background-color: lightblue;
@@ -18,10 +16,8 @@ text{
     justify-content: center;
     align-items: center;
     align-content: center;
-    text-align: center;
-    
+    text-align: center;    
 }
 a {
-    
     width: 100px;
 }

@@ -13,44 +13,31 @@ const Checkout = () => {
     const [email,setEmail] = useState('')
     const [direction,setDirection] = useState('')
     const [orderId, setOrderId] = useState('')
-    const {cart, total, clearCart } = useContext(CartContext)//total es totalpay y clearCert es clearAll
+    const {cart, total, clearCart } = useContext(CartContext)
 
     const navigate = useNavigate()
 
     const createOrder = async () => {
         setLoading(true)
         try {
-            const objOrder = {//newOrder
-                buyer: {
-                    /* name: 'Juan Gauna',
-                    phone: '9876543210',
-                    email: 'info@jugauna.com' */
+            const objOrder = {
+                buyer: {                    
                     name,
                     phone,
                     email,
-                    direction
-                
+                    direction                
                 },
                 items: cart,
                 total
             }
     
-            const batch = writeBatch(db)
-    
-            const ids = cart.map(prod => prod.id)
-            console.log(ids)
-    
-            const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-    
-            // getDocs(productsRef).then(productsAddedToCartFromFirestore => {
-    
-            // })
-    
+            const batch = writeBatch(db)    
+            const ids = cart.map(prod => prod.id)    
+            const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))  
             const productsAddedToCartFromFirestore = await getDocs(productsRef)
             const { docs } = productsAddedToCartFromFirestore
-    
             const outOfStock = []
-    
+
             docs.forEach(doc => {
                 const dataDoc = doc.data()
                 const stockDb = dataDoc.stock
@@ -66,12 +53,9 @@ const Checkout = () => {
             })
     
             if(outOfStock.length === 0) {
-                await batch.commit()
-    
-                const orderRef = collection(db, 'orders')
-    
-                const orderAdded = await addDoc(orderRef, objOrder)
-    
+                await batch.commit()    
+                const orderRef = collection(db, 'orders')    
+                const orderAdded = await addDoc(orderRef, objOrder)    
                 const { id } = orderAdded
                 setOrderId(id)
 
@@ -89,9 +73,7 @@ const Checkout = () => {
             console.error(error)
         } finally {
             setLoading(false)
-        }
-       
-        
+        }       
     }
 
     if(loading) {
@@ -125,40 +107,6 @@ const Checkout = () => {
     }
 
     return (
-        /* <div>
-            <h1>Finalizar Compra</h1>
-            <button onClick={createOrder}>Generar Orden de Compra</button>
-        </div> */
-        /* <div className='cart-container'>
-            <div>
-                <div>
-                    <div>
-                        <h1>Ingrese sus datos de Contacto</h1>
-                    </div>
-                    <div class="formulario"> */
-                    /*     <form class="form-horizontal">
-                            <div class="col-md-8">
-                                <label for="inputNombre" class="col-lg-8 control-label">Nombre y Apellido</label>
-                                <input type="text" value={name} class="form-control" placeholder="Nombre y Apellido" aria-label="nombre" onChange={(event) => setName(event.target.value)} />
-                            </div>
-                            <div class="col-md-8">
-                                <label for="inputNombre" class="form-label">Telefono</label>
-                                <input type="text" value={phone} class="form-control" placeholder="Telefono" aria-label="nombre" onChange={(event) => setPhone(event.target.value)}/>
-                            </div>
-                            <div class="col-md-8">
-                                <label for="inputEmail4" value={email} class="form-label">Email</label>
-                                <input type="email" class="form-control" placeholder="Email" id="inputEmail4" onChange={(event) => setEmail(event.target.value)}/>
-                            </div>
-                            <div class="col-md-8">
-                                <label for="inputComentarios" class="form-label">Dirección</label>
-                                
-                                <input type="text" value={direction} class="form-control" placeholder="Dirección" aria-label="Direccion" onChange={(event) => setDirection(event.target.value)}/>
-                            </div>
-                            <div class="col-12 boton">
-                                
-                                <button className="Button2" class="btn btn-outline-primary" onClick={createOrder}>Generar Orden de Compra </button>
-                            </div> 
-                        </form> */
     <div class="container">
         <div class="row">
             <div class="col">               
@@ -192,23 +140,7 @@ const Checkout = () => {
                             
                             <div class="valid-tooltip">¡Campo válido!</div>
                             <div class="invalid-tooltip">Debe completar los datos.</div>
-                        </div>                                            
-                         {/* <div class="col-md-3 position-relative">
-                            <label for="pais" class="form-label">País</label>
-                            <select class="form-select" id="pais" required>
-                                <option selected disabled value="">Seleccione...</option>
-                                <option>México</option>
-                                <option>Colombia</option>
-                                <option>Perú</option>
-                                <option>Chile</option>
-                                <option>Argentina</option>
-                            </select>
-                            
-                            <div class="valid-tooltip">¡Campo válido!</div>
-                            <div class="invalid-tooltip">Debe completar los datos.</div>
-                        </div>  */}    
-
-                                      
+                        </div>      
                         <div class="col-12">
                             <h6>* Campos Obligatorios</h6>
                             <button className="Button2" class="btn btn-outline-white" onClick={createOrder}>Generar Orden de Compra </button>
@@ -218,32 +150,7 @@ const Checkout = () => {
             </div>
         </div>
     </div>
-
-
-
-                    /* <form  >
-                        <div>
-                            <input type="text" value={name} placeholder="Nombre y Apellido" onChange={(event) => setName(event.target.value)}/>
-                        </div>
-                        <div>
-                            <input type="text" value={phone} placeholder="Telefono" onChange={(event) => setPhone(event.target.value)}/>
-                        </div>
-                        <div>
-                            <input type="email" value={email} placeholder="Correo electronico" onChange={(event) => setEmail(event.target.value)}/>
-                        </div>
-                        <div>
-                            <input type="text" value={direction} placeholder="Direccion" onChange={(event) => setDirection(event.target.value)}/>
-                        </div>
-                    </form> */
-             /*    </div>
-            </div>             
-        </div>
-        </div> */
-
     )
 }
-
-
-
 
 export default Checkout

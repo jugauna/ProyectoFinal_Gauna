@@ -1,6 +1,5 @@
 import './ItemDetail.css'
 import { useContext, useState } from 'react'
-/* import ItemCount from '../ItemCount/ItemCount' */
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import Swal from 'sweetalert2'
@@ -29,29 +28,24 @@ const ButtonCount = ({ onConfirm, stock, initial = 1 }) => {
 }
 
 
-const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
-    /* const [inputType, setInputType] = useState('button') */
-    const [quantity, setQuantity] = useState(0)
+    const ItemDetail = ({ id, name, category, img, price, stock, description}) => {    
+    const [ quantity,  setQuantity] = useState(0)
 
     const ItemCount =  ButtonCount
 
-    const { addItem, isInCart } = useContext(CartContext)
-    /* const setNotification = useContext(NotificationContext) */
+    const { addItem, isInCart } = useContext(CartContext)    
 
     const handleOnAdd = (quantity) => {
-        console.log('agregue al carrito: ', quantity)
-
-        setQuantity(parseInt(quantity))   
         
-        addItem({ id, name, price, quantity, img})
-        /* setNotification('error',`Produto agregado: ${quantity} ${name}`, 5) */
+        setQuantity(parseInt(quantity))   
+        addItem({ id, name, price, quantity, img })
         Swal.fire({
-            title: 'Producto agregado',
-            text: (`Produto agregado: ${quantity} unidad/es de ${name}`),
+            title: 'Producto AGREGADO al Carrito:',
+            text: (` ${quantity} unidad/es de ${name}`),
             imageUrl:  img,
             icon: 'success',
-            imageWidth: 200,
-            imageHeight: 200,
+            imageWidth: 150,
+            imageHeight: 150,
             imageAlt: 'Custom image',
             })
     }
@@ -73,7 +67,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description}) => {
                 <p className="Info">
                     {description}
                 </p>
-                <p className="Info">Disponible: {stock}</p>
+                <p className="Info">Disponible:{stock}</p>
                 <p className="Info">
                     Precio: {price}
                 </p>

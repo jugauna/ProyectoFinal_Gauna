@@ -4,7 +4,6 @@
     justify-content: center;
     background: rgb(54, 31, 185) !important;
     width: 100%;    
-    
 }
 .form-horizontal{
     width: 100%;
@@ -14,32 +13,18 @@
     flex-direction: column;
     align-items: center;  
     padding-top: 30px;
-    
 }
 .col-md-6{
     text-align: left;
 }
-
 h6{
     text-align: right;
     padding: 20px;
 }
-
-
-/* .form-label {
-    color: #DFF6FF;
-}
-.form-check-label{
-    color: #DFF6FF;
-} */
-/* .boton{
-     padding-top: 20px;
-}*/
 button{
     padding: 15px !important;
     font-size: 12px;
 }
-
 .btn{
     background: rgb(54, 31, 185) !important;
 }

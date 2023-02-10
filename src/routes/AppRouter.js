@@ -8,7 +8,7 @@ import Checkout from '../components/Checkout/Checkout';
 const AppRouter = () => {
     return (
        <Routes>
-            <Route path='/' element={<ItemListContainer greeting='Todos nuestros productos'/>}/>
+            <Route path='/' element={<ItemListContainer greeting='Nuestros productos'/>}/>
             <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos filtrados'/>} />
             <Route path='/detail/:productId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart/>} />
